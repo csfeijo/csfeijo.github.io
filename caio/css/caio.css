@@ -1,15 +1,19 @@
 body {
   background: #640492;
   font-family: Arial;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
 div {
-  border: 1px solid white;
+  border: 1px dotted black;
   width: 200px;
   height: 200px;
   border-radius: 20px;
-  margin: 100px auto;
+  /* margin: 100px auto; */
 
   background: url(../img/caio-1.png) no-repeat;
   background-size: 0%;
@@ -18,23 +22,18 @@ div {
   animation: gira 1s 1 linear 1s,
              escala 1s 1 linear 2s forwards, 
              sombra 1s 1 linear 2s forwards,
-             logo 2s 1 linear 4s forwards;
-  /* forwards: significa que a animação NÃO deve recomeçar */
-  /* animation-fill-mode: forwards; */
-
-  /* Então para entender um pouquinho do que eu quis demonstrar aqui: */
-  /* 1) Chamamos a "gira" e ela tem 1 segundo de duração, ocorre só uma vez, 
-        e tem um delay de 1 segundo para começar
-     2) Chamamos a "escala" e ela tem 1 segundo de duração, ocorre só uma vez, 
-        e tem um delay de 2 segundos para começar (para espera a anterior concluir)
-     3) Chamamos a "sombra" e ela tem 1 segundo de duração, ocorre só uma vez, 
-        e tem um delay de 2 segundos para começar TAMBEM (pois ela deve ocorrer JUNTO com a escala
-     4) Chamamos o "logo" e ela tem 2 segundos de duração, ocorre só uma vez, e deve esperar 4 segundos
-        de delay (para dar tempo das outras ocorrerem)
-    
-      * forwards : no final da configuração evita que a animação volte ao estado inicial quando conluída. */
+             logo 2s 1 linear 4s forwards,
+             amplia 1s 1 linear 7s forwards;
 
 }
+
+@keyframes amplia {
+  to {
+    transform: scale(10);
+    opacity: 0;
+  }
+}
+
 
 @keyframes gira {
   to {
